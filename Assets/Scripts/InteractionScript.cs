@@ -32,6 +32,7 @@ public class InteractionScript : MonoBehaviour {
         {
             currentInterObj.SendMessage("OpenDoor");
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
