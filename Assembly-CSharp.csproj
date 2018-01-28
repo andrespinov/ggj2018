@@ -53,7 +53,9 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Enemy.cs" />
+     <Compile Include="Assets\MenuController.cs" />
      <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\RetryController.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\FileScript.cs" />
      <Compile Include="Assets\Scripts\FloorTile.cs" />
