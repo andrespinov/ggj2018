@@ -44,8 +44,57 @@ public class PlayerController : MonoBehaviour
         string py = rb2d.position.y.ToString();
         speed = (float)(speed / delta);
         animator.SetBool("Running", true);
+        bool death2 = false;
 
-        if (death == false)
+        //Se determina si el gato tiene le libro y se asignas las respectivas animaciones para cada movimiento
+        if (animator.GetBool("TakeBook") == true)
+        {
+            Debug.Log(animator.GetBool("TakeBook") + "Fuera del metodo");
+
+            //ACTIVAR Y DESACTIVAR ANIMACIÓN DE MUERTE
+            if (Input.GetKey(KeyCode.T))
+            {
+                animator.SetBool("DeadB", true);
+                death2 = true;
+            }
+            else if (Input.GetKey(KeyCode.U))
+            {
+                animator.SetBool("DeadB", false);
+                death2 = false;
+            }
+
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            animator.SetBool("RunningB", true);
+            Debug.Log(animator.GetBool("RunningB") + "Fuera del metodo");
+
+            if (death2 == false)
+            {
+                if (vertical > 0)
+                {
+                    rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + speed));
+                }
+                else if (vertical < 0)
+                {
+                    rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - speed));
+                }
+                if (horizontal > 0)
+                {
+                    rb2d.MovePosition(new Vector2(rb2d.position.x + speed, rb2d.position.y));
+                }
+                else if (horizontal < 0)
+                {
+                    rb2d.MovePosition(new Vector2(rb2d.position.x - speed, rb2d.position.y));
+                }
+                else if (horizontal == 0 && vertical == 0)
+                {
+                    animator.SetBool("RunningB", false);
+                }
+
+            }
+        }
+        else if (death == false)
         {
             if (v > 0)
             {
@@ -73,7 +122,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void PickBook() {
+    public void PickBook()
+    {
         bool death2 = false;
         animator.SetBool("TakeBook", true);
         Debug.Log("Inside Pick viene el book");
@@ -95,37 +145,37 @@ public class PlayerController : MonoBehaviour
                 death2 = false;
             }
 
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
 
             animator.SetBool("RunningB", true);
-            Debug.Log(animator.GetBool("RunningB")+ "AQUIIII");
+            Debug.Log(animator.GetBool("RunningB") + "AQUIIII");
 
             if (death2 == false)
             {
-                if (v > 0)
+                if (vertical > 0)
                 {
                     rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + speed));
                 }
-                else if (v < 0)
+                else if (vertical < 0)
                 {
                     rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - speed));
                 }
-                if (h > 0)
+                if (horizontal > 0)
                 {
                     rb2d.MovePosition(new Vector2(rb2d.position.x + speed, rb2d.position.y));
                 }
-                else if (h < 0)
+                else if (horizontal < 0)
                 {
                     rb2d.MovePosition(new Vector2(rb2d.position.x - speed, rb2d.position.y));
                 }
-                else if (h == 0 && v == 0)
+                else if (horizontal == 0 && vertical == 0)
                 {
                     animator.SetBool("RunningB", false);
                 }
 
             }
         }
-        
+
     }
 }
