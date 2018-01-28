@@ -6,6 +6,8 @@ TagManager:
   tags:
   - interObject
   - door
+  - audio_archivos
+  - player
   layers:
   - Default
   - TransparentFX

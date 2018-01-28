@@ -6,14 +6,33 @@ public class InteractionScript : MonoBehaviour {
 
     public GameObject currentInterObj = null;
     public bool bandera = false;
- //  public GameObject door = GameObject.FindGameObjectWithTag("door");
+    public GameObject door;
+    public GameObject audio_archivos;
+    public GameObject player;
 
+    void Start()
+    {        
+        door = GameObject.FindGameObjectWithTag("door");
+        audio_archivos = GameObject.FindGameObjectWithTag("audio_archivos");
+        player = GameObject.FindGameObjectWithTag("player");
+        bandera = false;
+    }
+   
     void Update()
     {
         if (Input.GetButtonDown("Recolect") && currentInterObj)
         {
+
             currentInterObj.SendMessage("Disappear");
+            player.SendMessage("PickBook");
+            
+            audio_archivos.GetComponent<AudioSource>().Play();
+            Debug.Log("Inside Recolect");
             bandera = true;
+        }
+        if (Input.GetButtonDown("Recolect") && currentInterObj && bandera)
+        {
+            currentInterObj.SendMessage("OpenDoor");
         }
     }
 
@@ -25,8 +44,7 @@ public class InteractionScript : MonoBehaviour {
         }
         if (bandera && other.CompareTag("door"))
         {
-            other.SendMessage("Disappear");
-            Debug.Log("Pasar lvl");
+            currentInterObj = other.gameObject;
         }
 
     }
