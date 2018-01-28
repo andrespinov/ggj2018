@@ -60,7 +60,10 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.SetActive(false);
-        Time.timeScale = 0;
+        if (other.CompareTag("Player"))
+        {
+            other.SendMessage("Die");
+            gameObject.SetActive(false);
+        }
     }
 }

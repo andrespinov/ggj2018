@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     public float delta = 50;
     private Rigidbody2D rb2d;
     public bool death;
+    public AnimationClip dieAnim;
+    Animation anim;
 
     // Use this for initialization
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        anim = GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -119,6 +122,13 @@ public class PlayerController : MonoBehaviour
 
         }
         speed = (float)(speed * delta);
+
+    }
+
+    public void Die()
+    {
+        anim.clip = dieAnim;
+        anim.Play();
 
     }
 
