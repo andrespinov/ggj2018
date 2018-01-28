@@ -23497,9 +23497,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1053782672}
   - component: {fileID: 1053782673}
+  - component: {fileID: 1053782674}
   m_Layer: 0
   m_Name: BooksShining
-  m_TagString: Untagged
+  m_TagString: interObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23561,6 +23562,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!58 &1053782674
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053782671}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1001 &1056298536
 Prefab:
   m_ObjectHideFlags: 0
@@ -49312,6 +49328,7 @@ GameObject:
   - component: {fileID: 2146461700}
   - component: {fileID: 2146461701}
   - component: {fileID: 2146461697}
+  - component: {fileID: 2146461702}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -49363,7 +49380,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -49377,7 +49394,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.97, y: 0.97}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!212 &2146461698
 SpriteRenderer:
@@ -49469,3 +49486,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!61 &2146461702
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2146461694}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0753968, y: 0.9404762}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.9}
+  m_EdgeRadius: 0

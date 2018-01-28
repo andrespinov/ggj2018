@@ -60,6 +60,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        other.gameObject.SetActive(false);
+        Time.timeScale = 0;
     }
 }

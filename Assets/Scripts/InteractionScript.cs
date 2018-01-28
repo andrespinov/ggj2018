@@ -14,18 +14,16 @@ public class InteractionScript : MonoBehaviour {
     {        
         door = GameObject.FindGameObjectWithTag("door");
         audio_archivos = GameObject.FindGameObjectWithTag("audio_archivos");
-        player = GameObject.FindGameObjectWithTag("player");
+        player = GameObject.FindGameObjectWithTag("Player");
         bandera = false;
     }
    
     void Update()
     {
-        if (Input.GetButtonDown("Recolect") && currentInterObj)
+        if (Input.GetButtonDown("Recolect") && currentInterObj && !bandera)
         {
-
             currentInterObj.SendMessage("Disappear");
-            player.SendMessage("PickBook");
-            
+            player.SendMessage("PickBook");            
             audio_archivos.GetComponent<AudioSource>().Play();
             Debug.Log("Inside Recolect");
             bandera = true;
