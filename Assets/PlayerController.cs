@@ -25,19 +25,11 @@ public class PlayerController : MonoBehaviour {
 
 		string px = rb2d.position.x.ToString();
 		string py = rb2d.position.y.ToString();
-		bool bx = false;
-		bool by = false;
 
-		if (px.Length > 2 && px.Substring(px.Length - 2).Equals(".5")) {
-			bx = true;
-		}
-		if (py.Length > 2 && py.Substring(py.Length - 2).Equals(".5"))
-		{
-			by = true;
-		}
 
-		if (bx)
-		{
+
+
+		
 			if (v > 0)
 			{
 				rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + 0.25f));
@@ -46,8 +38,7 @@ public class PlayerController : MonoBehaviour {
 			{
 				rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y - 0.25f));
 			}
-		}
-	    if (by) {
+	
 			if (h > 0)
 			{
 				rb2d.MovePosition(new Vector2(rb2d.position.x + 0.25f, rb2d.position.y));
@@ -56,6 +47,6 @@ public class PlayerController : MonoBehaviour {
 			{
 				rb2d.MovePosition(new Vector2(rb2d.position.x - 0.25f, rb2d.position.y));
 			}
-		}
+		
 	}
 }
